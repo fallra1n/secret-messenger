@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 from django.urls import include
-from message.views import page_not_found
+from smessages.views import page_not_found
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('smessenger/', include('message.urls')),
+    path('smessenger/', include('smessages.urls')),
 ]
 
 handler404 = page_not_found

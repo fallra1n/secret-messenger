@@ -4,5 +4,5 @@ from .views import *
 
 urlpatterns = [
     path('', index),
-    path('message/<str:key>/', get_secret_message),
+    path('smessages/<str:key>/', get_secret_message),
 ]

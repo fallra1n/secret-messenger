@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 
 def index(request):
-    return HttpResponse("hello world")
+    return render(request, '')
 
 
 def get_secret_message(request, key: str):
