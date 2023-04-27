@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'secretmessenger.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379",
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://:pass@127.0.0.1:6379/1',
     }
 }
 
