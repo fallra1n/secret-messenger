@@ -1,8 +1,22 @@
 version: latest
 
 services:
+  secretmessenger:
+    build:
+      context: .
+      dockerfile: Dockerfile.secretmessenger
+    command: python secretmessenger/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379/1
   redis:
     image: 'redis:4-alpine'
+    build:
+      context: .
+      dockerfile: Dockerfile.redis
     command: redis-server --requirepass pass
     ports:
       - '6379:6379'

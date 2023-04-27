@@ -9,12 +9,12 @@ def index(request) -> HttpResponse:
         message = request.POST.get('message')
         ttl = request.POST.get('ttl')
         uid = uuid4()
-
-        try:
-            cache.set(str(uid), message, int(ttl))
-        except:
-            response_html = 'smessages/500.html'
-            return render(request, response_html)
+        cache.set(str(uid), message, int(ttl))
+        # try:
+        #     cache.set(str(uid), message, int(ttl))
+        # except:
+        #     response_html = 'smessages/500.html'
+        #     return render(request, response_html)
 
         host = request.META.get('HTTP_HOST')
         target_path = 'http://' + \
